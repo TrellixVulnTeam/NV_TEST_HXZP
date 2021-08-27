@@ -99,6 +99,12 @@ def get_parser(**parser_kwargs):
         default="",
         help="post-postfix for default name",
     )
+    parser.add_argument(
+        "--nodes",
+        type=int,
+        default=0,
+        help="seed for seed_everything",
+    )
 
     return parser
 
@@ -417,6 +423,8 @@ if __name__ == "__main__":
         trainer_config = lightning_config.get("trainer", OmegaConf.create())
         # default to ddp
         trainer_config["distributed_backend"] = "ddp"
+        if opt.nodes > 1:
+            trainer_config["num_nodes"] = opt.nodes
         for k in nondefault_trainer_args(opt):
             trainer_config[k] = getattr(opt, k)
         if not "gpus" in trainer_config:
