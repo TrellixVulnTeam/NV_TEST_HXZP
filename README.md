@@ -18,3 +18,7 @@ should be placed under `data/cocostuffthings`.
 ```
 python main.py --base configs/coco_cond_stage.yaml -t True --gpus 0,
 ```
+multiple nodes (16 gpus, 4 gpus per node)
+```
+python main.py --base configs/coco_cond_stage.yaml -t True --gpus 0,1,2,3, --nodes 4
+```
