@@ -5,7 +5,7 @@ conda env create -f env_config.yaml
 conda activate nv_test
 ```
 ## Download pre-trained model
-[pretrain_model](https://k00.fr/2zz6i2ce)
+download the [pretrain_model](https://k00.fr/2zz6i2ce), and place it into logs/
 ### COCO
 Create a symlink `data/coco` containing the images from the 2017 split in
 `train2017` and `val2017`, and their annotations in `annotations`. Files can be
